@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Александра & Анатолий | 01.08.2026</title>
+
+  <!-- Локальные шрифты -->
+  <style>
+    @font-face {
+      font-family: 'Cinzel Decorative';
+      src: url('fonts/Cinzel_Decorative/CinzelDecorative-Regular.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Play';
+      src: url('fonts/Play/Play-Regular.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      background:#f9f5f0 url('фон.jpg') repeat;
+      background-size: cover;
+      background-attachment: fixed;
+      color:#3a2e2b;
+      font-family:'Play', sans-serif;
+      line-height:1.5;
+      font-size:16px;
+    }
+    .container { max-width:900px; margin:0 auto; padding:0 15px; text-align:center; }
+    .header {
+      padding:80px 15px 60px;
+      background:rgba(249,245,240,0.92);
+    }
+    .monogram { max-width:220px; margin:0 auto 30px; }
+    .monogram img { width:100%; height:auto; }
+    .names {
+      font-family:'Cinzel Decorative', serif;
+      font-size:3.8rem;
+      color:#5d4037;
+      margin:10px 0;
+      letter-spacing:2px;
+    }
+    .amp { font-size:2.8rem; color:#8d6e63; margin:0 15px; }
+    .date { font-size:1.6rem; color:#6d4c41; margin:30px 0 60px; }
+    .intro-section {
+      background:#4a3c32;
+      color:#f9f5f0;
+      padding:60px 20px;
+      margin:50px 0;
+      border-radius:12px;
+    }
+    .intro-section h2 {
+      font-family:'Cinzel Decorative', serif;
+      font-size:2.4rem;
+      margin-bottom:30px;
+    }
+    .intro-section h2:after {
+      content:"———";
+      display:block;
+      margin-top:12px;
+      font-size:1.4rem;
+      opacity:0.7;
+    }
+    .photo { max-width:700px; margin:40px auto; border-radius:12px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,0.2); }
+    .photo img { width:100%; height:auto; }
+    .section {
+      background:#4a3c32;
+      color:#f9f5f0;
+      padding:50px 20px;
+      margin:40px 0;
+      border-radius:12px;
+    }
+    .section h2 {
+      font-family:'Cinzel Decorative', serif;
+      font-size:2.2rem;
+      margin-bottom:30px;
+    }
+    .section h2:after {
+      content:"———";
+      display:block;
+      margin-top:12px;
+      font-size:1.4rem;
+      opacity:0.7;
+    }
+    .rsvp-section {
+      background:#f9f5f0;
+      color:#3a2e2b;
+      padding:50px 30px;
+      border-radius:12px;
+      margin:50px auto;
+      max-width:600px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.12);
+    }
+    .rsvp-title { font-size:2rem; margin-bottom:30px; font-family:'Cinzel Decorative', serif; }
+    .rsvp-text { font-size:1.2rem; margin-bottom:40px; }
+    .rsvp-buttons {
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:30px;
+    }
+    .btn {
+      font-family:'Play', sans-serif;
+      font-weight:bold;
+      font-size:1.2rem;
+      padding:14px 60px;
+      border-radius:50px;
+      text-decoration:none;
+      transition:all 0.3s;
+      border:2px solid #8d6e63;
+      min-width:220px;
+      text-align:center;
+    }
+    .btn.confirm { background:#8d6e63; color:#f9f5f0; }
+    .btn.confirm:hover { background:transparent; color:#8d6e63; }
+    .btn.decline { background:transparent; color:#8d6e63; }
+    .btn.decline:hover { background:#8d6e63; color:#f9f5f0; }
+    .calendar table { width:100%; border-collapse:collapse; margin:30px 0; font-size:1.1rem; }
+    .calendar td, .calendar th { padding:10px; border:1px solid #6d4c41; text-align:center; }
+    .highlight { background:#8d6e63; color:#f9f5f0; font-weight:bold; }
+    .map-container iframe { width:100%; height:380px; border:none; border-radius:12px; }
+    .timeline {
+      max-width:380px;
+      margin:0 auto;
+      position:relative;
+      padding-left:60px;
+      text-align:left;
+    }
+    .timeline:before {
+      content:'';
+      position:absolute;
+      left:30px;
+      top:0;
+      bottom:0;
+      width:1px;
+      background:#d4c9b8;
+    }
+    .event {
+      position:relative;
+      margin:40px 0;
+    }
+    .event-time {
+      font-weight:bold;
+      font-size:1.4rem;
+      color:#d4c9b8;
+      margin-bottom:6px;
+    }
+    .event-desc {
+      font-size:1.1rem;
+    }
+    .palette { display:flex; justify-content:center; gap:30px; margin:40px 0; }
+    .color { width:60px; height:60px; border-radius:50%; box-shadow:0 4px 12px rgba(0,0,0,0.15); }
+    .countdown-section {
+      background:#f9f5f0;
+      color:#3a2e2b;
+      padding:60px 30px;
+      margin:50px 0;
+      border-radius:12px;
+    }
+    .countdown { font-size:2.8rem; margin:40px 0; letter-spacing:6px; font-family:'Playfair Display', serif; }
+    .countdown span { background:#8d6e63; color:#f9f5f0; padding:12px 24px; border-radius:10px; min-width:80px; display:inline-block; margin:8px; }
+    .contact {
+      background:#4a3c32;
+      color:#f9f5f0;
+      padding:60px 20px;
+      margin:50px 0 0;
+      border-radius:12px;
+    }
+    .tg a {
+      font-size:1.5rem;
+      color:#f9f5f0;
+      text-decoration:none;
+      border-bottom:2px solid #d4c9b8;
+      padding-bottom:6px;
+    }
+    .tg a:hover { color:#d4c9b8; }
+    @media (max-width:600px) {
+      .names { font-size:2.8rem; }
+      .amp { font-size:2rem; }
+      .date { font-size:1.3rem; }
+      .rsvp-buttons { flex-direction:column; gap:20px; }
+      .btn { min-width:100%; padding:12px 40px; }
+      .section { padding:40px 15px; }
+      .timeline { padding-left:50px; }
+      .map-container iframe { height:300px; }
+      .countdown { font-size:2.2rem; }
+      .countdown span { padding:10px 20px; min-width:70px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header container">
+    <div class="monogram">
+      <img src="лого.png" alt="Монограмма">
+    </div>
+    <div class="names">АЛЕКСАНДРА</div>
+    <span class="amp">&</span>
+    <div class="names">АНАТОЛИЙ</div>
+    <div class="date">01 / 08 / 26</div>
+  </div>
+
+  <div class="container">
+    <div class="intro-section">
+      <h2>ЭТОТ МОМЕНТ НАСТАЛ!</h2>
+      <p style="font-size:1.4rem; max-width:800px; margin:0 auto 40px;">Совсем скоро состоится день нашей свадьбы, и мы будем счастливы, если Вы разделите с нами этот чудесный день!</p>
+      <div class="photo">
+        <img src="фото1.JPG" alt="Пара молодожёнов">
+      </div>
+    </div>
+
+    <div class="rsvp-section">
+      <h2 class="rsvp-title">АНКЕТА ГОСТЯ</h2>
+      <p class="rsvp-text">Подтвердите своё присутствие или отсутствие на мероприятии</p>
+      <div class="rsvp-buttons">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScHk9SG1AIIwEzGl3SeGD7YeX3MH_7vCAxAk3VyHqYcmRgEzg/viewform?usp=pp_url&entry.922662177=%D0%94%D0%B0,+%D0%B1%D1%83%D0%B4%D1%83" class="btn confirm" target="_blank">Подтвердить</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScHk9SG1AIIwEzGl3SeGD7YeX3MH_7vCAxAk3VyHqYcmRgEzg/viewform?usp=pp_url&entry.922662177=%D0%9D%D0%B5%D1%82,+%D0%BD%D0%B5+%D0%B1%D1%83%D0%B4%D1%83" class="btn decline" target="_blank">Не смогу быть</a>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>СВАДЬБА СОСТОИТСЯ</h2>
+      <div class="calendar">
+        <p>2026 — АВГУСТ</p>
+        <table>
+          <tr><th>ПН</th><th>ВТ</th><th>СР</th><th>ЧТ</th><th>ПТ</th><th>СБ</th><th>ВС</th></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td><td class="highlight"> 1 </td><td>2</td></tr>
+          <tr><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td></tr>
+          <tr><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td></tr>
+          <tr><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td></tr>
+          <tr><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td><td>29</td></tr>
+          <tr><td>30</td><td>31</td><td></td><td></td><td></td><td></td><td></td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>ЛОКАЦИЯ</h2>
+      <p style="font-size:1.3rem; margin:20px 0;">Банкетный зал «White Garden»<br>ул. Павла Леонтьевича Морозова, 79/5</p>
+      <div class="map-container">
+        <iframe
+  src="https://yandex.ru/map-widget/v1/-/CPey4AKi"
+  style="width:100%; height:380px; border:none;"
+  allowfullscreen>
+</iframe>
+      </div>
+      <div class="photo" style="margin-top:40px;">
+        <img src="фото2.jpg" alt="Руки молодожёнов">
+      </div>
+      <p style="margin-top:20px; font-size:1.4rem;">Сбор гостей: 16:30</p>
+    </div>
+
+    <div class="section">
+      <h2>ТАЙМИНГ</h2>
+      <div class="timeline">
+        <div class="event">
+          <div class="event-time">16:30</div>
+          <div class="event-desc">Сбор гостей</div>
+        </div>
+        <div class="event">
+          <div class="event-time">17:00</div>
+          <div class="event-desc">Церемония регистрации</div>
+        </div>
+        <div class="event">
+          <div class="event-time">17:30</div>
+          <div class="event-desc">Банкет</div>
+        </div>
+        <div class="event">
+          <div class="event-time">23:00</div>
+          <div class="event-desc">Завершение вечера</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>ДРЕСС-КОД</h2>
+      <p style="font-size:1.2rem; max-width:700px; margin:0 auto 40px;">Мы очень ждём и готовимся к нашему незабываемому дню! Поддержите нас Вашими красивыми нарядами в палитре мероприятия</p>
+      <div class="palette">
+        <div class="color" style="background:#3a3f2b;"></div>
+        <div class="color" style="background:#5d6b47;"></div>
+        <div class="color" style="background:#e0d4c2;"></div>
+      </div>
+    </div>
+
+    <div class="countdown-section">
+      <h2>ДО НАШЕЙ СВАДЬБЫ ОСТАЛОСЬ</h2>
+      <div class="countdown" id="countdown"></div>
+    </div>
+
+    <div class="contact">
+      <h2>СВЯЗАТЬСЯ С НАМИ</h2>
+      <div class="tg" style="margin-top:50px;">
+        <a href="https://t.me/cora1lin" target="_blank">Написать в Telegram</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const wedding = new Date('2026-08-01T00:00:00').getTime();
+    function updateCountdown() {
+      const diff = wedding - Date.now();
+      if (diff < 0) {
+        document.getElementById('countdown').innerHTML = 'Свадьба уже состоялась!';
+        return;
+      }
+      const d = Math.floor(diff / 86400000);
+      const h = Math.floor((diff % 86400000) / 3600000);
+      const m = Math.floor((diff % 3600000) / 60000);
+      const s = Math.floor((diff % 60000) / 1000);
+      document.getElementById('countdown').innerHTML = `
+        <span>${d}</span> дней
+        <span>${h}</span> часов
+        <span>${m}</span> минут
+        <span>${s}</span> секунд
+      `;
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+
+</body>
+</html>
